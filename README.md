@@ -34,6 +34,12 @@ Change `test` to the target name for which you want `makelint` to be executed.
 It is important that the `-include` directive to include `Makelint.mk` is the last include directive of your `Makefile`.
 If it isn't, the incremental feature of `makelint` to only re-run the checks in case there were failures or changes will not work properly.
 
+At Nelkinda, we use `makelint` as the first dependency for all:
+```
+.PHONY: all
+all: makelint build
+```
+
 ## Installing `makelint`
 `makelint` can run with or without installation.
 If you want to install `makelint`, run `sudo make install`.
