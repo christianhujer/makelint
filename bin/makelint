@@ -6,6 +6,7 @@ if [ -t 2 ] ; then
     NC=$(echo -e '\033[0m')
 else
     RED=
+    GREEN=
     NC=
 fi
 
