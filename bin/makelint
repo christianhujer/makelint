@@ -6,10 +6,12 @@ if [ -t 2 ] ; then
     RED=$(echo -e '\033[1;31m')
     GREEN=$(echo -e '\033[1;32m')
     NC=$(echo -e '\033[0m')
+    COLOR=--color=always
 else
     RED=
     GREEN=
     NC=
+    COLOR=--color=never
 fi
 
 reformat() {
@@ -17,6 +19,6 @@ reformat() {
 }
 
 ! (
-    grep -Pn '^\t\s*-?(make)\b' $@ | reformat "use \$(MAKE) instead of make for recursive make"
-    grep -Pn '^\t\s*-?(rm)\b' $@   | reformat "use \$(RM) instead of rm for deleting files"
+    grep -Pn ${COLOR} '^\t\s*-?(make)\b' $@ | reformat "use \`${GREEN}\$(MAKE)${NC}\` instead of \`${RED}make${NC}\` for recursive make"
+    grep -Pn ${COLOR} '^\t\s*-?(rm)\b' $@   | reformat "use \`${GREEN}\$(RM)${NC}\` instead of \`${RED}rm${NC}\` for deleting files"
 ) | grep --color=never . 1>&2
