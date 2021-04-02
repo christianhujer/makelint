@@ -40,6 +40,12 @@ At Nelkinda, we use `makelint` as the first dependency for all:
 all: makelint build
 ```
 
+Also, add the following entries to your `.gitignore` file:
+```
+.makelint/
+.makelint_success
+```
+
 ## Installing `makelint`
 `makelint` can run with or without installation.
 If you want to install `makelint`, run `sudo make install`.
