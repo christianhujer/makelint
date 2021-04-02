@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ -t 2 ] ; then
-        RED=$(echo -e '\033[1;31m')
-        GREEN=$(echo -e '\033[1;32m')
-        NC=$(echo -e '\033[0m')
+    RED=$(echo -e '\033[1;31m')
+    GREEN=$(echo -e '\033[1;32m')
+    NC=$(echo -e '\033[0m')
 else
     RED=
     NC=
